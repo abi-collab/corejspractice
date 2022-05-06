@@ -1,26 +1,24 @@
 // fetch API is not supported in Nodejs,only supported through downloaded packages
 // as alternative, I copied the response data of a Fake Json API through online endpoint.
 // saved the response data to a separate js file and export it.
-const { todos, persons } = require('./FakeAPI.js');
+const { todos, persons } = require("./FakeAPI.js");
 
 // map function walks through every  item in an array
 // todos.map(todo => console.log(todo));
 
 //get only the objects that has completed property that is === true
-let completed = todos.filter(todo => todo.completed === true);
+let completed = todos.filter((todo) => todo.completed === true);
 
 //Compare the array length after filtering the the completed todos
 // console.log(todos.length);
 // console.log(completed.length);
 
-
-
 // this reduce function returns an object that contains every user as property and it contains arrays of objects that belongs to it.
 // group objects owned by user through a user's Id
 result = completed.reduce(function (a, b) {
-    a[b.userId] = a[b.userId] || [];
-    a[b.userId].push(b);
-    return a;
+  a[b.userId] = a[b.userId] || [];
+  a[b.userId].push(b);
+  return a;
 }, Object.create(null));
 
 // console.log(result);
@@ -38,7 +36,7 @@ persons.forEach((per) => {
 console.log(persons.length);
 console.log(uniquePersons.size);
 
-let arrNames = ["Jun","Robert","Ben"];
+let arrNames = ["Jun", "Robert", "Ben"];
 
 //sort array of string alphabetically
 console.log(arrNames.sort());
@@ -47,21 +45,21 @@ console.log(arrNames.sort());
 arrNames.shift();
 
 //adding items to the beginning of an array
-arrNames.unshift('Balong');
+arrNames.unshift("Balong");
 
 //this function walks through every array of  strings and convert it to lowercase, making the sort function works as expected when text casing is not consistent.
-let lowerCases = arrNames.map(name => {
-    return name.toLocaleLowerCase();
+let lowerCases = arrNames.map((name) => {
+  return name.toLocaleLowerCase();
 });
 console.log(lowerCases.sort());
 
-let arrNumbers = [44,24,65,2,43,22,876,45,21,54,6];
+let arrNumbers = [44, 24, 65, 2, 43, 22, 876, 45, 21, 54, 6];
 
 // sort numbers from highest to lowest
-let arrNumbers2 = arrNumbers.sort((a,b) => b - a);
+let arrNumbers2 = arrNumbers.sort((a, b) => b - a);
 
 // return all numbers that is greater or equal to 43 and store it to a variable
-let numGreater40 = arrNumbers.filter(num => num >= 43);
+let numGreater40 = arrNumbers.filter((num) => num >= 43);
 
 console.log(numGreater40);
 console.log(arrNumbers2);
@@ -69,9 +67,6 @@ console.log(arrNumbers.sort());
 
 // reverse the iteration/sequence of an array according to values
 console.log(numGreater40.reverse());
-
-
-
 
 //Remarks
 // Below are array manipulating functions that I read and tried to apply to simple instances.
@@ -96,9 +91,3 @@ console.log(numGreater40.reverse());
 // every() checks if all items in an array pass the specified condition and return true if passed, else false.
 // some() checks if an item (one or more) in an array pass the specified condition and return true if passed, else false.
 // includes() checks if an array contains a certain item.
-
-
-
-
-
-
